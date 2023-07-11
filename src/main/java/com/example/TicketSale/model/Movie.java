@@ -16,9 +16,12 @@ import java.util.Set;
 @PrimaryKeyJoinColumn(name = "movie_id")
 public class Movie extends Event{
     private LocalDate releaseDate;
+
+    @Column(columnDefinition = "DECIMAL(3,1)")
     private float imdbPoint;
     private Duration length;
 
+    @Column(nullable = true, columnDefinition = "DECIMAL(17,2)")
     private double budget;
 
     @Enumerated(EnumType.STRING)

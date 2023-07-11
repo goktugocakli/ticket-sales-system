@@ -97,6 +97,8 @@ public class CustomerService {
         customerRepository.deleteById(id);
     }
 
+    public Customer getById(long id){return customerRepository.findById(id).orElseThrow();}
+
 
 
 

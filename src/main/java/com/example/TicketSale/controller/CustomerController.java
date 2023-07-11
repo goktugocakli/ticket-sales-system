@@ -26,7 +26,7 @@ public class CustomerController {
 
     @GetMapping("/{id}")
     public ResponseEntity<CustomerDto> findById(@PathVariable String id) throws Exception {
-        CustomerDto customerDTO = customerService.findById(Long.valueOf(id));
+        CustomerDto customerDTO = customerService.findById(Long.parseLong(id));
         return ResponseEntity.ok(customerDTO);
     }
 

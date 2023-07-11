@@ -4,6 +4,8 @@ package com.example.TicketSale.model;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.Set;
+
 
 @Data
 @AllArgsConstructor
@@ -31,4 +33,7 @@ public class OrganizationCompany {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "addressId")
     private Address address;
+
+    @OneToMany(mappedBy = "organizationCompany")
+    private Set<Organization> organizations;
 }

@@ -47,6 +47,10 @@ public class OrganizationCompanyService {
         return organizationCompanyConverter.toOrganizationCompanyDto(organizationCompany);
     }
 
+    public OrganizationCompany getById(long id){
+        return organizationCompanyRepository.findById(id).orElseThrow();
+    }
+
     public OrganizationCompanyDto findById(Long id){
         OrganizationCompany organizationCompany = organizationCompanyRepository.findById(id)
                 .orElseThrow(() -> new OrganizationCompanyNotFoundException("Organization Company is not found. Id:" + id));

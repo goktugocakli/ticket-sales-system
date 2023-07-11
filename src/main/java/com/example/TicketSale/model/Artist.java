@@ -5,6 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import java.util.Set;
+
 
 @Data
 @Builder
@@ -18,5 +20,23 @@ public class Artist {
     private String firstName;
     private String secondName;
     private String surname;
+
+    @ManyToMany(mappedBy = "directors")
+    private Set<Movie> directMovies;
+
+    @ManyToMany(mappedBy = "casts")
+    private Set<Movie> castMovies;
+
+    @ManyToMany(mappedBy = "musicians")
+    private Set<Concert> concerts;
+
+    @ManyToMany(mappedBy = "directors")
+    private Set<Theater> directTheaters;
+
+    @ManyToMany(mappedBy = "casts")
+    private Set<Theater> castTheater;
+
+
+
 
 }

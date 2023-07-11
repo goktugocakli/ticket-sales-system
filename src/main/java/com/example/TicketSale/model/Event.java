@@ -7,6 +7,8 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.io.Serializable;
+import java.util.List;
+import java.util.Set;
 
 @Data
 @AllArgsConstructor
@@ -28,6 +30,9 @@ public class Event {
     private String description;
 
     private String type;
+
+    @OneToMany(mappedBy = "event")
+    private Set<Organization> organizations;
 
     public Event(String title, String description, String type){
         this.title=title;
